@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" role="img" aria-label="Insieme Assessoria">
+  <!-- Marca: dois anéis entrelaçados representando "insieme" (junto, em italiano) -->
+  <g>
+    <circle cx="24" cy="30" r="16" fill="none" stroke="#0b2540" stroke-width="6"/>
+    <circle cx="40" cy="30" r="16" fill="none" stroke="#2fb8a4" stroke-width="6"/>
+  </g>
+
+  <!-- Nome -->
+  <text x="68" y="27" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700" fill="#0b2540">Insieme</text>
+  <text x="68" y="47" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="400" letter-spacing="1.5" fill="#4a555d">ASSESSORIA</text>
+</svg>
