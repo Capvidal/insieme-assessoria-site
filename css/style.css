@@ -15,7 +15,7 @@
   --color-white: #ffffff;
   --color-gray-100: #f5f7f9;
   --color-gray-200: #e7ebee;
-  --color-gray-400: #9aa5ad;
+  --color-gray-400: #b4bec6;
   --color-gray-700: #4a555d;
   --color-text: #1c2b36;
 
@@ -41,6 +41,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa o header fixo ao navegar pelas âncoras, para o título da seção não ficar escondido */
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -87,6 +89,25 @@ p {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* Link "pular para o conteúdo" — visível apenas quando recebe foco via teclado */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  transform: translateY(-120%);
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 6px 0;
+  transition: transform var(--transition-base);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .section {
@@ -151,7 +172,11 @@ p {
   width: 100%;
   z-index: 1000;
   background-color: rgba(11, 37, 64, 0.97);
-  transition: background-color var(--transition-base);
+  transition: box-shadow var(--transition-base);
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .header-inner {
@@ -184,7 +209,8 @@ p {
   transition: color var(--transition-base);
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a[aria-current="true"] {
   color: var(--color-accent-light);
 }
 
@@ -620,6 +646,11 @@ p {
   transform: scale(1.08);
 }
 
+/* O botão usa display:flex, então o atributo [hidden] precisa ser reforçado */
+.whatsapp-float[hidden] {
+  display: none;
+}
+
 /* =========================================================
    ANIMAÇÕES DISCRETAS ON-SCROLL
    ========================================================= */
@@ -682,11 +713,30 @@ p {
     background-color: var(--color-navy);
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-base);
+    /* visibility:hidden remove os links da ordem de tabulação e da árvore de acessibilidade
+       enquanto o menu está fechado */
+    visibility: hidden;
+    transition: max-height var(--transition-base), visibility var(--transition-base);
   }
 
   .main-nav.is-open {
     max-height: 400px;
+    visibility: visible;
+  }
+
+  /* Navegação simples (páginas sem menu mobile, ex.: privacidade e 404):
+     permanece sempre visível */
+  .main-nav--inline {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    visibility: visible;
+    background: transparent;
+  }
+
+  .main-nav--inline ul {
+    flex-direction: row;
+    padding: 0;
   }
 
   .main-nav ul {

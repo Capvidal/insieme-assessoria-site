@@ -9,6 +9,10 @@ sem backend e sem banco de dados. Funciona apenas abrindo o `index.html` no nave
 /
 ├── index.html
 ├── privacidade.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── CNAME
 ├── css/
 │   └── style.css
 ├── js/
@@ -82,17 +86,20 @@ const LINKEDIN_URL = "https://www.linkedin.com/company/insieme-assessoria";
 
 ## 6. Onde colocar o e-mail
 
-Ainda em `js/script.js`:
+O e-mail fica **direto no HTML** (funciona mesmo sem JavaScript). Procure por
+`insieme_assessoria@hotmail.com` em `index.html` (cartão "E-mail" da seção de contato) e no
+bloco `application/ld+json` do `<head>`, e substitua se mudar de endereço.
 
-```js
-const CONTACT_EMAIL = "contato@insiemeassessoria.com.br";
-```
+Enquanto `WHATSAPP_NUMBER` ou `LINKEDIN_URL` estiverem vazios, o cartão / botão correspondente
+aparece desabilitado ou oculto (sem link quebrado) até você preencher o dado em `js/script.js`.
 
-Esse e-mail é usado no cartão "E-mail" da seção de contato (abre o aplicativo de e-mail do
-visitante com `mailto:`).
+## 6a. SEO e arquivos de apoio
 
-Enquanto `WHATSAPP_NUMBER`, `LINKEDIN_URL` ou `CONTACT_EMAIL` estiverem vazios, o cartão
-correspondente aparece visualmente desabilitado (sem link quebrado) até você preencher o dado.
+- `robots.txt` e `sitemap.xml` já estão na raiz. Se o domínio final mudar, ajuste as URLs
+  dentro desses dois arquivos e as URLs absolutas (`og:image`, `canonical`, `application/ld+json`)
+  no `<head>` do `index.html`.
+- `404.html` é servido automaticamente pelo GitHub Pages e pelo Cloudflare Pages.
+- Ao trocar `assets/images/og-cover.jpg`, mantenha 1200x630px para a prévia em redes sociais.
 
 ## 7. Como publicar no GitHub
 

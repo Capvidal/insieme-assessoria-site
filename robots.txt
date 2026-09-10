@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.insiemeassessoria.com.br/sitemap.xml
