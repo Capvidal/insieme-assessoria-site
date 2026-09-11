@@ -42,7 +42,7 @@
 html {
   scroll-behavior: smooth;
   /* Compensa o header fixo ao navegar pelas âncoras, para o título da seção não ficar escondido */
-  scroll-padding-top: 96px;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -183,7 +183,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: 80px;
+  transition: height var(--transition-base);
 }
 
 .logo {
@@ -191,9 +192,12 @@ p {
   align-items: center;
 }
 
+/* Marca com mais presença visual: a viewBox do SVG foi recortada (sem áreas vazias),
+   então este valor de altura amplia proporcionalmente símbolo + nome juntos. */
 .logo img {
-  height: 34px;
+  height: 44px;
   width: auto;
+  transition: height var(--transition-base);
 }
 
 .main-nav ul {
@@ -265,6 +269,13 @@ p {
   color: var(--color-gray-200);
   font-size: 1.05rem;
   max-width: 560px;
+  margin-bottom: 1rem;
+}
+
+.hero-complement {
+  color: var(--color-gray-200);
+  font-size: 0.9rem;
+  max-width: 560px;
   margin-bottom: 2rem;
 }
 
@@ -326,6 +337,14 @@ p {
   font-weight: 700;
 }
 
+.insieme-principio {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-petrol-light);
+}
+
 /* =========================================================
    SOLUÇÕES — QUATRO PILARES
    ========================================================= */
@@ -377,6 +396,44 @@ p {
 }
 
 /* =========================================================
+   CONHECIMENTO CONSTRUÍDO NA PRÁTICA
+   ========================================================= */
+.conhecimento-intro {
+  max-width: 720px;
+  font-size: 1.05rem;
+}
+
+.conhecimento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.conhecimento-item {
+  padding: 1.25rem;
+  background-color: var(--color-gray-100);
+  border-radius: 6px;
+}
+
+.conhecimento-item h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.conhecimento-item p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.conhecimento-nota {
+  max-width: 720px;
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* =========================================================
    EXPERIÊNCIA
    ========================================================= */
 .experiencia {
@@ -388,9 +445,25 @@ p {
   font-size: 1.05rem;
 }
 
+.experiencia-subtitulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-petrol-light);
+  margin: 2.5rem 0 0.75rem;
+}
+
+.experiencia-organizacoes {
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+  max-width: 780px;
+  margin-bottom: 0;
+}
+
 .experiencia-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin: 2.5rem 0;
 }
@@ -425,6 +498,22 @@ p {
 /* =========================================================
    COMO TRABALHAMOS
    ========================================================= */
+.processo-intro {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 2.5rem;
+}
+
+.processo-tagline {
+  margin: 3rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-gray-200);
+  color: var(--color-petrol-light);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 .processo-flow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -678,7 +767,7 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .experiencia-grid {
+  .conhecimento-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -701,13 +790,27 @@ p {
 }
 
 @media (max-width: 860px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  .header-inner {
+    height: 68px;
+  }
+
+  /* No mobile o menu recolhe para o ícone, então a marca ganha ainda mais destaque
+     relativo, sem exigir um header alto */
+  .logo img {
+    height: 36px;
+  }
+
   .menu-toggle {
     display: flex;
   }
 
   .main-nav {
     position: fixed;
-    top: 76px;
+    top: 68px;
     left: 0;
     width: 100%;
     background-color: var(--color-navy);
@@ -768,6 +871,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .conhecimento-grid {
+    grid-template-columns: 1fr;
+  }
+
   .diferenciais-grid {
     grid-template-columns: 1fr;
   }
@@ -796,6 +903,10 @@ p {
 }
 
 @media (max-width: 400px) {
+  .logo img {
+    height: 32px;
+  }
+
   .section h2 {
     font-size: 1.5rem;
   }
