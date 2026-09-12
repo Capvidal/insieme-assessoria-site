@@ -195,7 +195,7 @@ p {
 /* Marca com mais presença visual: a viewBox do SVG foi recortada (sem áreas vazias),
    então este valor de altura amplia proporcionalmente símbolo + nome juntos. */
 .logo img {
-  height: 44px;
+  height: 64px;
   width: auto;
   transition: height var(--transition-base);
 }
@@ -801,7 +801,7 @@ p {
   /* No mobile o menu recolhe para o ícone, então a marca ganha ainda mais destaque
      relativo, sem exigir um header alto */
   .logo img {
-    height: 36px;
+    height: 52px;
   }
 
   .menu-toggle {
@@ -904,7 +904,7 @@ p {
 
 @media (max-width: 400px) {
   .logo img {
-    height: 32px;
+    height: 46px;
   }
 
   .section h2 {
